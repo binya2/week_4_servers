@@ -38,14 +38,16 @@ def caesar(caesar_body: CaesarBody):
     return {sign_mag: text_after_proses}
 
 
-@app.get("/fence/encrypt?text=text_to_encrypt")
+@app.get("/fence/encrypt")
 def fence_encrypt_text(text: str):
-    pass
+    encrypted_text = utils.fence_cipher_encrypt(text)
+    return { "encrypted_text": encrypted_text }
 
 
 @app.post("/fence/decrypt")
 def fence_decrypt_text(fence_body: FenceBody):
-    pass
+    decrypted_text = utils.fence_cipher_decrypt(fence_body.text)
+    return {"decrypted": decrypted_text}
 
 
 if __name__ == "__main__":

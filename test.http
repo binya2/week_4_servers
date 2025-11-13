@@ -9,8 +9,8 @@ POST http://localhost:8000/caesar
 Content-Type: application/json
 
 {
-  "text": "Hello world",
-  "offset": 2,
+  "text": "welcome kodkod",
+  "offset": 16,
   "mode": "encrypt"
 }
 
@@ -22,4 +22,13 @@ Content-Type: application/json
   "text": "mubsecu aetaet",
   "offset": 16,
   "mode": "decrypt”"
+}
+###
+GET http://localhost:8000/fence/encrypt?text=welcome%20kodkod
+###
+POST http://localhost:8000/fence/decrypt
+Content-Type: application/json
+
+{
+  "text": "wloeokdecmkdo"
 }
