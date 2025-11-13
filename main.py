@@ -6,14 +6,16 @@ import utils
 
 file_name = "names.txt"
 app = FastAPI()
+
+
 class CaesarBody(BaseModel):
     text: str = ""
     offset: int = 0
-    mode:str =  "encrypt" or "decrypt"
+    mode: str = "encrypt" or "decrypt"
+
 
 class DecryptBody(BaseModel):
     text: str = ""
-
 
 
 @app.get("/test")
@@ -28,18 +30,22 @@ def get_items(usrename: str):
 
 
 @app.post("/caesar")
-def caesar(caesar: CaesarBody):
-    pass
+def caesar(caesar_body: CaesarBody):
+    sign = 1 if caesar_body.mode == "encrypt" else -1
+    key = caesar_body.offset * sign
+    text_after_proses: str = utils.caesar_cipher(caesar_body.text, key)
+    sign_mag: str = "encrypted_text" if caesar_body.mode == "encrypt" else "decrypted_text"
+    return {sign_mag: text_after_proses}
+
 
 @app.get("/fence/encrypt?text=text_to_encrypt")
 def encrypt_text(text: str):
     pass
 
+
 @app.post("/fence/decrypt")
 def decrypt_text(decrypt_body: DecryptBody):
     pass
-
-
 
 
 if __name__ == "__main__":

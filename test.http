@@ -1,5 +1,25 @@
 ###
 GET http://localhost:8000/test
+
 ###
 GET http://localhost:8000/test/benny
+
 ###
+POST http://localhost:8000/caesar
+Content-Type: application/json
+
+{
+  "text": "Hello world",
+  "offset": 2,
+  "mode": "encrypt"
+}
+
+###
+POST http://localhost:8000/caesar
+Content-Type: application/json
+
+{
+  "text": "jgnnq yqtnf",
+  "offset": 2,
+  "mode": "decrypt”"
+}
