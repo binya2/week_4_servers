@@ -1,3 +1,6 @@
+import time
+
+
 def append_to_file(file_name, content):
     with open(file_name, 'a') as f:
         f.write(content + '\n')
@@ -49,3 +52,5 @@ def fence_cipher_decrypt(text: str):
             j += 1
 
     return result
+a = f"{(abs(time.perf_counter() - time.perf_counter())):.8f}"
+print(a)
