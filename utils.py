@@ -1,6 +1,6 @@
 def append_to_file(file_name, content):
     with open(file_name, 'a') as f:
-        f.write(content)
+        f.write(content + '\n')
 
 
 def caesar_cipher(text: str, key: int):
@@ -32,7 +32,7 @@ def fence_cipher_encrypt(text: str):
 
 
 def fence_cipher_decrypt(text: str):
-    middle: int = int(len(text) // 2) + 1
+    middle: int = (len(text) // 2) + 1
     part_1: str = text[:middle]
     part_2: str = text[middle:]
     part_1_size: int = len(part_1)

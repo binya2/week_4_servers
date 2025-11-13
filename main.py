@@ -33,15 +33,16 @@ def get_items(usrename: str):
 def caesar(caesar_body: CaesarBody):
     sign = 1 if caesar_body.mode == "encrypt" else -1
     key = caesar_body.offset * sign
+
     text_after_proses: str = utils.caesar_cipher(caesar_body.text, key)
-    sign_mag: str = "encrypted_text" if caesar_body.mode == "encrypt" else "decrypted_text"
+    sign_mag: str = "encrypted_text" if sign == 1 else "decrypted_text"
     return {sign_mag: text_after_proses}
 
 
 @app.get("/fence/encrypt")
 def fence_encrypt_text(text: str):
     encrypted_text = utils.fence_cipher_encrypt(text)
-    return { "encrypted_text": encrypted_text }
+    return {"encrypted_text": encrypted_text}
 
 
 @app.post("/fence/decrypt")

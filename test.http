@@ -1,9 +1,7 @@
 ###
 GET http://localhost:8000/test
-
 ###
-GET http://localhost:8000/test/benny
-
+GET http://localhost:8000/test/denny
 ###
 POST http://localhost:8000/caesar
 Content-Type: application/json
@@ -13,7 +11,6 @@ Content-Type: application/json
   "offset": 16,
   "mode": "encrypt"
 }
-
 ###
 POST http://localhost:8000/caesar
 Content-Type: application/json
