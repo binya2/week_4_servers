@@ -10,10 +10,14 @@ def caesar_cipher(text: str, key: int):
             text_after_proses += text[i]
             continue
         else:
-            new_letter_ack = ord(text[i].lower()) + key
-            if new_letter_ack > 122:
-                new_letter_ack = new_letter_ack - 26
-            if new_letter_ack < 97:
-                new_letter_ack = new_letter_ack + 26
-            text_after_proses += chr(new_letter_ack)
+            first_letter_in_ask: int = 97
+            letter_after_process: int = (ord(text[i].lower())+ key - first_letter_in_ask) % 26
+            text_after_proses += chr(letter_after_process + first_letter_in_ask)
     return text_after_proses
+
+
+
+
+def fence_cipher():
+    pass
+

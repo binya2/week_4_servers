@@ -14,7 +14,7 @@ class CaesarBody(BaseModel):
     mode: str = "encrypt" or "decrypt"
 
 
-class DecryptBody(BaseModel):
+class FenceBody(BaseModel):
     text: str = ""
 
 
@@ -39,12 +39,12 @@ def caesar(caesar_body: CaesarBody):
 
 
 @app.get("/fence/encrypt?text=text_to_encrypt")
-def encrypt_text(text: str):
+def fence_encrypt_text(text: str):
     pass
 
 
 @app.post("/fence/decrypt")
-def decrypt_text(decrypt_body: DecryptBody):
+def fence_decrypt_text(fence_body: FenceBody):
     pass
 
 
