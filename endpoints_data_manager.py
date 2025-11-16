@@ -18,6 +18,13 @@ class EndpointsData:
 
 def load_data():
     with open(DATA_FILE, "r") as f:
+        print(f.read().strip())
+        if f.read() == "":
+            print(f"Loading endpoints data == []...{DATA_FILE}")
+
+            return []
+        print(f"Loading endpoints data == {DATA_FILE}")
+
         return json.load(f)
 
 
@@ -29,6 +36,7 @@ def save_data(data):
 def load_endpoint(url: str, method: str, total_time: str):
     data = load_data()
     found = False
+
     for ep in data:
         if ep["url"] == url:
             current_average = ep["stats"]["avg_handling_time"]
@@ -43,6 +51,7 @@ def load_endpoint(url: str, method: str, total_time: str):
 
 
 def add_new_endpoint(data, url: str, method: str, total_time: str):
+    print(f"add_new_endpoint: {url}")
     stats = Stats(1, total_time)
     endpoints_Data = EndpointsData(url, method, stats)
     data.append(endpoints_Data)
