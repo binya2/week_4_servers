@@ -32,7 +32,7 @@ def fence_cipher_encrypt(text: str):
 
 
 def fence_cipher_decrypt(text: str):
-    middle: int = (len(text) // 2) + 1
+    middle: int = (len(text) // 2) + 1 if len(text) % 2 == 0 else len(text) // 2
     part_1: str = text[:middle]
     part_2: str = text[middle:]
     part_1_size: int = len(part_1)
